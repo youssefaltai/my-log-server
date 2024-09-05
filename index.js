@@ -1,9 +1,10 @@
-import express, { json, urlencoded } from 'express';
-import { connect, model } from 'mongoose';
-import cors from 'cors';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import dotenv from 'dotenv';
+const express = require('express');
+const { json, urlencoded } = require('express');
+const { connect, model } = require('mongoose');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -38,7 +39,7 @@ app.use(limiter);
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
-// Create a new Mongoose model for `Log
+// Create a new Mongoose model for `Log`
 const Log = model('Log', {
     level: String,
     message: String,
